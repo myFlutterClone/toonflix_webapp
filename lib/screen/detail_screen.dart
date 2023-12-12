@@ -45,7 +45,7 @@ class _DetailScreenState extends State<DetailScreen> {
       body: Column(
         children: [
           const SizedBox(
-            height: 50,
+            height: 20,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -71,7 +71,7 @@ class _DetailScreenState extends State<DetailScreen> {
             ],
           ),
           const SizedBox(
-            height: 25,
+            height: 20,
           ),
           FutureBuilder(
             future: webtoon,
@@ -84,20 +84,40 @@ class _DetailScreenState extends State<DetailScreen> {
                     children: [
                       Text(
                         snapshot.data!.about,
-                        style: const TextStyle(fontSize: 16),
+                        style: const TextStyle(fontSize: 15),
                       ),
                       const SizedBox(
-                        height: 15,
+                        height: 20,
                       ),
                       Text(
                         '${snapshot.data!.genre} / ${snapshot.data!.age}',
-                        style: const TextStyle(fontSize: 16),
+                        style: const TextStyle(fontSize: 15),
                       ),
                     ],
                   ),
                 );
               }
               return const Text("...");
+            },
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          FutureBuilder(
+            future: episodes,
+            builder: (context, snapshot) {
+              if (snapshot.hasData) {
+                return Column(
+                  children: [
+                    for (var episode in snapshot.data!) Text(episode.title)
+                    // for (var episode in snapshot.data!.length > 10
+                    //     ? snapshot.data!.sublist(0, 10)
+                    //     : snapshot.data!)
+                    // Text(episode.title)
+                  ],
+                );
+              }
+              return Container();
             },
           )
         ],
