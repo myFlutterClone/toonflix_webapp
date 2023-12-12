@@ -107,14 +107,12 @@ class _DetailScreenState extends State<DetailScreen> {
             future: episodes,
             builder: (context, snapshot) {
               if (snapshot.hasData) {
-                return Column(
-                  children: [
-                    for (var episode in snapshot.data!) Text(episode.title)
-                    // for (var episode in snapshot.data!.length > 10
-                    //     ? snapshot.data!.sublist(0, 10)
-                    //     : snapshot.data!)
-                    // Text(episode.title)
-                  ],
+                return SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      for (var episode in snapshot.data!) Text(episode.title)
+                    ],
+                  ),
                 );
               }
               return Container();
