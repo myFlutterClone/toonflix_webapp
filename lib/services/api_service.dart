@@ -5,7 +5,6 @@ import 'package:http/http.dart';
 import 'package:toonflix_webapp/models/webtoon_episode_model.dart';
 import 'package:toonflix_webapp/models/webtoon_model.dart';
 import 'package:toonflix_webapp/models/webtoon_detail_model.dart';
-import 'package:toonflix_webapp/widgets/webtoon_widget.dart';
 
 class ApiService {
   static const String baseUrl =
